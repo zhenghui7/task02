@@ -36,17 +36,18 @@ public class Main {
         BufferedReader br = new BufferedReader(isr);
 
         String line;
+        String wordprevious = "TESTABCDEFGH";
         
-        while((line = br.readLine()) != null) {
+
+        // to include code to continue empty paragraph line spacing
+        while((line = br.readLine()) != null || !line.isEmpty()) {
                        
             //to remove all puncutations and change to lowercase
             String[] words = line.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
 
             //to scan through and identify all the words. attempt to add in a 2nd loop to count the subsequent word
-            String wordprevious = "TESTABCDEFGH";
-
             for (String w: words) {
-                if (words.length<0); {
+                if (words.length > 0); {
                     
                     String wordPair = wordprevious + " " + w;
                     
@@ -89,11 +90,15 @@ public class Main {
         
         //to calculate the probability to each of the unique words
         Set<String> uniqueWords = wordFreq.keySet();
+        Integer probability = 0;
+
             for (String w: uniqueWords) {
                 int count = wordFreq.get(w);
                 System.out.printf(": %s - %d\n", w, count);
 
-                
+                // ?????
+                // probability = 
+
                 }
         System.out.printf("Number of unique words: %d\n", uniqueWords.size());
 
